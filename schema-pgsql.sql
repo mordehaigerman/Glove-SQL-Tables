@@ -78,28 +78,28 @@ create table `posts_data` (
  */
 create table `posts_tags` (
 	`post_id`	int				not null,
-	`tag`		varchar(255)	not null,
+    `tag`       varchar(255)    not null,
 
-	primary key (`post_id`, `tag`),
-	foreign key (`post_id`) references `posts` (`post_id`)
+    primary key (`post_id`, `tag`),
+    foreign key (`post_id`) references `posts` (`post_id`)
 );
 
 /*
  * Pages Table
  */
 create table `pages` (
-	`page_id`	serial			not null,
-	`user_id`	int				not null,
+    `page_id`   serial          not null,
+    `user_id`   int             not null,
 
-	`parent_id`	int					null,
-	`namespace`	varchar(255)	not null,
+    `parent_id` int                 null,
+    `namespace` varchar(255)    not null,
 
-	`url`		varchar(255)	not null,
-	`status`	varchar(255)	not null,
-	`date`		timestamptz		not null,
+    `url`       varchar(255)    not null,
+    `status`    varchar(255)    not null,
+    `date`      timestamptz     not null,
 
-	primary key (`page_id`),
-	foreign key (`user_id`) references `users` (`user_id`)
+    primary key (`page_id`),
+    foreign key (`user_id`) references `users` (`user_id`)
 );
 
 /*
@@ -111,10 +111,10 @@ create index `pages_url` on `pages` (`url`);
  * Pages Data Table
  */
 create table `pages_data` (
-	`page_id`	int				not null,
-	`name`		varchar(255)	not null,
-	`content`	text			not null,
+    `page_id`   int             not null,
+    `name`      varchar(255)    not null,
+    `content`   text            not null,
 
-	primary key (`page_id`, `name`),
-	foreign key (`page_id`) references `pages` (`page_id`)
+    primary key (`page_id`, `name`),
+    foreign key (`page_id`) references `pages` (`page_id`)
 );
